@@ -1,0 +1,162 @@
+{
+  "title": "Goddesen modifiers",
+  "rules": [
+    {
+      "description": "Makes escape trigger meh + escape for Alfred",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape"
+          },
+          "to": [
+            {
+              "key_code": "escape",
+              "modifiers": [
+                "left_shift",
+                "left_control",
+                "left_option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 834,
+                  "description": "Apple Internal Keyboard / Trackpad"
+                },
+                {
+                  "vendor_id": 1133,
+                  "product_id": 45926,
+                  "description": "Mx mechanical"
+                } 
+              ]
+            }
+          ]
+        }
+      ]
+    },
+{
+      "description": "Caps lock -> Escape",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock"
+          },
+          "to": [
+            {
+              "key_code": "left_control",
+	      "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "escape"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 834,
+                  "description": "Apple Internal Keyboard / Trackpad"
+                },
+                {
+                  "vendor_id": 1133,
+                  "product_id": 45926,
+                  "description": "Mx mechanical"
+                } 
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Send left paren if left shift is pressed alone",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_shift"
+          },
+	  "to": [
+	    {
+	      "key_code": "left_shift",
+	      "lazy": true
+	    }
+	  ],
+	  "to_if_alone": [
+	    {
+	      "key_code": "9",
+	      "modifiers": ["left_shift"]
+	    }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 834,
+                  "description": "Apple Internal Keyboard / Trackpad"
+                },
+                {
+                  "vendor_id": 1133,
+                  "product_id": 45926,
+                  "description": "Mx mechanical"
+                } 
+              ]
+            }
+          ]
+	}
+      ]
+    },
+    {
+      "description": "Send right paren if left shift is pressed alone",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_shift"
+          },
+	  "to": [
+	    {
+	      "key_code": "right_shift",
+	      "lazy": true
+	    }
+	  ],
+	  "to_if_alone": [
+	    {
+	      "key_code": "0",
+	      "modifiers": ["left_shift"]
+	    }
+	  ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 834,
+                  "description": "Apple Internal Keyboard / Trackpad"
+                }, 
+                {
+                  "vendor_id": 1133,
+                  "product_id": 45926,
+                  "description": "Mx mechanical"
+                } 
+              ]
+            }
+          ]
+	}
+      ]
+    }
+  ]
+}
